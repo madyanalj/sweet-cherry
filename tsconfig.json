@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "esModuleInterop": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "downlevelIteration": true,
+    "skipLibCheck": true,
+    "jsx": "react"
+  }
+}
