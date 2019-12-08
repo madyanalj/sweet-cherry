@@ -1,5 +1,5 @@
 export interface Field {
-  tag: 'input' | 'textarea'
+  tag: 'INPUT' | 'TEXTAREA'
   idKey: 'id' | 'name'
   idValue: string
 }
