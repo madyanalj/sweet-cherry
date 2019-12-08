@@ -9,11 +9,17 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     margin: 0;
+    box-sizing: border-box;
   }
-  
+
   textarea {
     display: block;
     width: 100%;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
   }
 `;
 

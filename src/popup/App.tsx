@@ -8,7 +8,7 @@ import { Global } from './Global';
 import { Credits } from './sections/Credits';
 
 const Host = styled.div`
-  min-width: 500px;
+  width: 500px;
   padding: var(--s-sm);
   display: grid;
   gap: var(--s-md);
@@ -60,7 +60,15 @@ export const App = () => {
             Edit Data
           </button>
           : <>
-            <textarea rows={10} value={textData} onChange={(event) => setTextData(event.target.value)} />
+            <textarea
+              placeholder={
+                'Insert your data here in CSV format (separated with the tab character). '
+                  + 'In other words, simply copy the data from a Google Sheet and paste it here! :)'
+              }
+              rows={10}
+              value={textData}
+              onChange={(event) => setTextData(event.target.value)}
+            />
             <button onClick={() => { setMode('READ') }} disabled={!textData}>Replace Data</button>
           </>
       }</div>
