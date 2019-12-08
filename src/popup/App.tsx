@@ -55,11 +55,14 @@ export const App = () => {
 
       <table>
         <thead>
-        <tr>{
-          fields
-            .map(({ idValue }) => idValue)
-            .map((header, i) => <th key={i}>{header}</th>)
-        }</tr>
+        <tr>
+          <th key={-1} /> {/* extra header for action buttons */}
+          {
+            fields
+              .map(({ idValue }) => idValue)
+              .map((header, i) => <th key={i}>{header}</th>)
+          }
+        </tr>
         </thead>
         <tbody>{
           data.map((row, i) => <tr key={i}>
