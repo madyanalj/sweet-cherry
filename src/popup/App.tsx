@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { sendMessageToContent } from '../shared/messaging';
 import { Field } from '../shared/models';
+import { getValue, setValue } from '../shared/storage';
 import { ArrayElement, csvToArray } from '../shared/utils';
 import { Global } from './Global';
 import { Credits } from './sections/Credits';
@@ -14,7 +15,7 @@ const Host = styled.div`
 `;
 
 export const App = () => {
-  const [mode, setMode] = useState<'READ' | 'WRITE'>('WRITE'); // TODO restore value from storage
+  const [mode, setMode] = useState<'READ' | 'WRITE'>('WRITE');
   const [textData, setTextData] = useState('');
   const [fields, setFields] = useState<Field[]>([]);
   const [data, setData] = useState<string[][]>([]);
@@ -35,8 +36,19 @@ export const App = () => {
   }, []);
 
   useEffect(() => {
+    (async () => {
+      const storedTextData = await getValue<string>('textData');
+      if (storedTextData) {
+        setTextData(storedTextData);
+        setMode('READ');
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
     if (mode === 'READ') {
       setData(csvToArray(textData));
+      setValue('textData', textData);
     }
   }, [mode]);
 
