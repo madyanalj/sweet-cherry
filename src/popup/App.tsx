@@ -57,7 +57,7 @@ export const App = () => {
       <div>{
         mode === 'READ'
           ? <button onClick={() => { setMode('WRITE') }}>
-            👀 Edit Data
+            Edit Data
           </button>
           : <>
             <textarea rows={10} value={textData} onChange={(event) => setTextData(event.target.value)} />
@@ -79,7 +79,7 @@ export const App = () => {
         <tbody>{
           data.map((row, i) => <tr key={i}>
             <td>
-              <button onClick={() => applyRow(row)}>✨</button>
+              <button onClick={() => applyRow(row)}>Apply Row</button>
             </td>
             {row.map((value, j) => <td key={j}>{value}</td>)}
           </tr>)
