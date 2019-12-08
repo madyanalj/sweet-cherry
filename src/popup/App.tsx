@@ -71,7 +71,7 @@ export const App = () => {
           <th key={-1} /> {/* extra header for action buttons */}
           {
             fields
-              .map(({ idValue }) => idValue)
+              .map(({ label, idValue }) => label || idValue)
               .map((header, i) => <th key={i}>{header}</th>)
           }
         </tr>

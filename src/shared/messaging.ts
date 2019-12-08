@@ -17,8 +17,8 @@ type MessageResponse<T extends MessageType> = Messages[T]['response'];
 
 const mockMessageResponses: { [type in MessageType]: MessageResponse<type> } = {
   FETCH_FIELDS: [
-    { tag: 'INPUT', idKey: 'id', idValue: 'A' },
-    { tag: 'INPUT', idKey: 'id', idValue: 'B' },
+    { tag: 'INPUT', idKey: 'id', idValue: 'A', label: 'A Label' },
+    { tag: 'INPUT', idKey: 'id', idValue: 'B', label: 'B Label' },
   ],
   FILL_FIELDS: undefined,
 };
